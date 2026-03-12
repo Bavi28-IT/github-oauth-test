@@ -1,0 +1,28 @@
+openapi: 3.0.1
+info:
+  title: GitHub Repository API
+  description: Retrieve files from a GitHub repository
+  version: "1.0"
+
+servers:
+  - url: https://api.github.com
+
+paths:
+  /repos/{owner}/{repo}/contents:
+    get:
+      summary: Get repository files
+      operationId: GetRepositoryFiles
+      parameters:
+        - name: owner
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repo
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Repository file list
